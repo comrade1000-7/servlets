@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicLong;
 // Stub
 public class PostRepository {
   private final ConcurrentHashMap<Long, Post> postsRepository = new ConcurrentHashMap<>();
-  static AtomicLong postId = new AtomicLong(0);
+  private final AtomicLong postId = new AtomicLong(0);
   public List<Post> all() {
     if (!postsRepository.isEmpty()) return new ArrayList<>(postsRepository.values());
     else throw new NullPointerException("Repository is empty");
