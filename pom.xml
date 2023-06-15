@@ -30,7 +30,7 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>com.github.heroku</groupId>
+                                    <groupId>com.heroku</groupId>
                                     <artifactId>webapp-runner</artifactId>
                                     <version>9.0.75.0</version>
                                     <destFileName>webapp-runner.jar</destFileName>
@@ -53,7 +53,6 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
