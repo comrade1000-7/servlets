@@ -28,6 +28,7 @@ public class PostRepository {
     if (post.getId() == 0) {
       postId.getAndIncrement();
       post.setId(postId.get()); //create new post
+      postsRepository.put(post.getId(), post); //add to repo
     } else if (postsRepository.containsKey(post.getId())) {
       postsRepository.put(post.getId(), post); //update id number of the post
     } else throw new NotFoundException("Post with that id doesn't exist");

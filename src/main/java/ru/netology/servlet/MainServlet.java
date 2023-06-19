@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class MainServlet extends HttpServlet {
   private PostController controller;
+  private PostRepository repository;
+  private PostService service;
   private static final String GET = "GET";
   private static final String POST = "POST";
   private static final String DELETE = "DELETE";
@@ -29,9 +31,9 @@ public class MainServlet extends HttpServlet {
     // отдаём класс конфигурации
     final var context = new AnnotationConfigApplicationContext(JavaConfig.class);
 
-    final var repository = context.getBean("postRepository");
-    final var controller = context.getBean("postController");
-    final var service = context.getBean("postService");
+    repository = context.getBean(PostRepository.class);
+    controller = context.getBean(PostController.class);
+    service = context.getBean(PostService.class);
   }
 
   @Override
