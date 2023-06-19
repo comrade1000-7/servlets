@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 public class MainServlet extends HttpServlet {
   private PostController controller;
+  private PostRepository repository;
+  private PostService service;
+
   private static final String GET = "GET";
   private static final String POST = "POST";
   private static final String DELETE = "DELETE";
@@ -28,14 +31,10 @@ public class MainServlet extends HttpServlet {
     // отдаём список пакетов, в которых нужно искать аннотированные классы
     final var context = new AnnotationConfigApplicationContext("ru.netology");
 
-    // получаем по имени бина
-    final var controller = context.getBean("postController");
-
-    // получаем по имени бина
-    final var repository = context.getBean("postRepository");
-
     // получаем по классу бина
-    final var service = context.getBean(PostService.class);
+    controller = context.getBean(PostController.class);
+    repository = context.getBean(PostRepository.class);
+    service = context.getBean(PostService.class);
   }
 
   @Override
